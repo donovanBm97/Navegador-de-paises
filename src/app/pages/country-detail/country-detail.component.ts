@@ -44,10 +44,7 @@ export class CountryDetailComponent implements OnInit {
 
     this.countriesSvc.getAll().subscribe({
       next: (all) => {
-        // Limpia la lista de países inválidos
         const cleanList = all.filter(c => c && c.cca3);
-
-        // Encuentra el país seleccionado
         this.country = cleanList.find(
           c => c.cca3.toLowerCase() === id.toLowerCase()
         ) ?? null;

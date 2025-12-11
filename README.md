@@ -1,59 +1,167 @@
-# CountryBrowser
+# 🌍 Comparador de Países — Angular 19 + Firebase Hosting
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+Aplicación web para buscar países, ver su detalle y sugerencias basadas en similitud geográfica y demográfica.
 
-## Development server
+---
 
-To start a local development server, run:
+# 🔗 URL Pública (Firebase)
 
-```bash
-ng serve
+https://browser-countries.web.app/
+
+---
+
+# 📦 Instalación, Ejecución y Despliegue
+
+## 1. Instalación
+```
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## 2. Ejecutar en desarrollo
+```
+ng serve -o
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+## 3. Build de producción
 ```
-
-## Building
-
-To build the project run:
-
-```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+## 4. Desplegar en Firebase Hosting
+```
+firebase init hosting
+firebase deploy
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+#  Arquitectura / Estructura del Proyecto
 
-```bash
-ng e2e
+```
+src/app/
+  core/
+    models/
+    services/
+  pages/
+    home/
+    country-detail/
+  shared/
+    components/
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+# Modelo de datos (API RESTCountries)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```ts
+Country {
+  name: { common: string },
+  cca3: string,
+  region: string,
+  population: number,
+  area: number,
+  languages: object,
+  flags: { png: string }
+}
+```
+
+---
+
+#  Reglas de Seguridad (Firestore)
+
+Archivo: firestore.rules
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
+```
+
+Archivo: database.rules.json
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": false
+  }
+}
+```
+
+---
+
+#  Estado y Navegación
+
+- Angular Router  
+- Rutas:
+  - `/` → Home  
+  - `/country/:id` → Detalle  
+
+---
+
+# Decisiones Técnicas
+
+- Standalone Components  
+- Angular Material  
+- shareReplay para caching  
+- Separación por capas  
+- Algoritmo de similitud simple y explicable
+
+---
+
+#  Escalabilidad y Mantenimiento
+
+- Fácil agregar favoritos, filtros, gráficos  
+- Servicios desacoplados  
+- Estructura por features  
+
+---
+
+# Seguridad
+
+- Sin almacenamiento de usuarios  
+- No hay keys expuestas  
+- Firestore bloqueado  
+
+---
+
+#  Rendimiento
+
+- Cache con shareReplay  
+- Solo una llamada a la API  
+
+---
+
+#  Accesibilidad
+
+- Labels en formularios  
+- Contraste correcto  
+- Navegación por teclado  
+
+---
+
+#  Uso de IA
+
+La IA se utilizó para:
+
+- Diseño del algoritmo de similitud  
+- Generación de explicaciones  
+- Documentación del proyecto  
+- Propuestas de mejoras de UI/UX  
+
+Riesgos mitigados:
+- Validación manual de lógica  
+- Reglas deterministas para evitar sesgos  
+
+---
+
+#  Limitaciones y Siguientes Pasos
+
+- Sin favoritos   
+- Similitud básica  
+- Pendiente agregar pruebas unitarias  
+
