@@ -1,0 +1,72 @@
+/* Contenedor general */
+mat-card {
+    margin: 20px auto;
+    max-width: 1100px;
+}
+
+/* Buscador bonito */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    mat-form-field {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+/* GRID PROFESIONAL */
+.countries-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* TARJETAS (tamaño fijo y consistentes) */
+.country-item {
+    height: 240px;
+    /* 🔥 mismo alto para todas */
+    width: 100%;
+    /* 🔥 dejar que el GRID decida */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+        width: 90px;
+        height: 60px;
+        border-radius: 6px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        margin: 6px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        max-width: 180px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    p {
+        opacity: 0.7;
+        font-size: 0.85rem;
+    }
+}

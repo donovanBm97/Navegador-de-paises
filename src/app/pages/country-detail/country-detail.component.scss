@@ -1,0 +1,111 @@
+.detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    button {
+        font-weight: 600;
+    }
+}
+
+/* Loading */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* Error */
+.error-card mat-card {
+    border-left: 6px solid #e53935;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Tarjeta principal del país */
+.country-card {
+    padding: 25px !important;
+    margin-bottom: 30px;
+
+    .country-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .main-flag {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .region {
+            opacity: 0.7;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+    }
+}
+
+/* Información en columnas */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 25px;
+    gap: 20px;
+
+    h4 {
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+}
+
+/* Similares */
+.similar-title {
+    margin: 20px 0 10px;
+    font-weight: 700;
+}
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+
+    .similar-card {
+        padding: 18px !important;
+        text-align: center;
+
+        img {
+            width: 90px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        h3 {
+            margin: 6px 0 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        p {
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+    }
+}

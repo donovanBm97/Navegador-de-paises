@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .spacer {
+        flex: 1;
+    }
+}
+
+.content {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #666;
+}

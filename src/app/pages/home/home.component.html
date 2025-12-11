@@ -1,0 +1,18 @@
+<mat-card>
+
+  <div class="search-box">
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar país</mat-label>
+      <input matInput [(ngModel)]="search" (input)="filter()" />
+    </mat-form-field>
+  </div>
+
+  <div class="countries-list">
+    <mat-card class="country-item" *ngFor="let c of filtered" [routerLink]="['/country', c.cca3]">
+      <img [src]="c.flags.png" />
+      <h3>{{ c.name.common }}</h3>
+      <p>{{ c.region }}</p>
+    </mat-card>
+  </div>
+
+</mat-card>

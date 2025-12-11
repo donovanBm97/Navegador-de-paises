@@ -1,0 +1,68 @@
+<div class="detail-container">
+
+  <!-- BOTONES DE ACCIÓN -->
+  <div class="actions">
+    <button mat-button color="primary" routerLink="/">
+      ← Regresar
+    </button>
+
+    <button mat-stroked-button color="primary" routerLink="/">
+      Nueva búsqueda
+    </button>
+  </div>
+
+  <!-- ESTADO DE CARGA -->
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="70"></mat-spinner>
+  </div>
+
+  <!-- ERROR -->
+  <div *ngIf="!loading && error" class="error-card">
+    <mat-card>
+      <h2>Error</h2>
+      <p>{{ error }}</p>
+    </mat-card>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <ng-container *ngIf="!loading && !error && country">
+
+    <mat-card class="country-card">
+      <div class="country-header">
+        <img [src]="country.flags.png" class="main-flag" />
+        <div>
+          <h1>{{ country.name.common }}</h1>
+          <p class="region">{{ country.region }}</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div>
+          <h4>Población</h4>
+          <p>{{ country.population | number }}</p>
+        </div>
+
+        <div>
+          <h4>Área</h4>
+          <p>{{ country.area | number }} km²</p>
+        </div>
+
+        <div>
+          <h4>Idiomas</h4>
+          <p>{{ country.languages | json }}</p>
+        </div>
+      </div>
+    </mat-card>
+
+    <h2 class="similar-title">Países similares</h2>
+
+    <div class="similar-grid">
+      <mat-card *ngFor="let c of similars; let i = index" class="similar-card">
+        <img [src]="c.flags.png" />
+        <h3>{{ c.name.common }}</h3>
+        <p>{{ explanations[i] }}</p>
+      </mat-card>
+    </div>
+
+  </ng-container>
+</div>

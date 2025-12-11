@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "browser-countries"
+  },
+  "targets": {
+    "browser-countries": {
+      "hosting": {
+        "site": "browser-countries"
+      }
+    }
+  }
+}

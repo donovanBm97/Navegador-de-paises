@@ -1,0 +1,16 @@
+.country-card {
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+img {
+    height: 150px;
+    object-fit: cover;
+}

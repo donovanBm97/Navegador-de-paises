@@ -1,0 +1,17 @@
+{
+    "hosting": {
+        "site": "browser-countries",
+        "public": "dist/country-browser",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}
